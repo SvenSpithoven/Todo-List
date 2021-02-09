@@ -1,3 +1,6 @@
+// Tips & Tricks API-client
+// 1. De BASE_URL in een constante zetten. Als het endpoint verandert hoef je het maar op 1 plek aan te passen.
+
 const getTasks = async () => {
   const response = await fetch(
     "https://todolistsven-default-rtdb.firebaseio.com/tasks.json",
@@ -43,6 +46,7 @@ const putTask = async (task) => {
       `https://todolistsven-default-rtdb.firebaseio.com/tasks/${task.id}.json`,
       {
         method: "PUT",
+        // 2.
         body: JSON.stringify({ description: task.description, done: true }),
       }
     );
@@ -55,6 +59,6 @@ const putTask = async (task) => {
       }
     );
   }
-
+  //3. hier de call maken naar addTasksToDom() is niet fout, alleen niet zo logisch in een functie die "putTask" heet. Je verwacht dat de functie de tasks put en verder niet.
   addTasksToDom();
 };
