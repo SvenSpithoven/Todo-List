@@ -46,7 +46,7 @@ const putTask = async (task) => {
       `https://todolistsven-default-rtdb.firebaseio.com/tasks/${task.id}.json`,
       {
         method: "PUT",
-        // 2.
+        // 2. wanneer je "done:true" verandert in "done: task.done", hoef je hier geen if statement te maken --> deze logica van het false/true maken kan naar de andere file
         body: JSON.stringify({ description: task.description, done: true }),
       }
     );
@@ -59,6 +59,6 @@ const putTask = async (task) => {
       }
     );
   }
-  //3. hier de call maken naar addTasksToDom() is niet fout, alleen niet zo logisch in een functie die "putTask" heet. Je verwacht dat de functie de tasks put en verder niet.
+  //3. hier de call maken naar addTasksToDom() is niet fout, alleen niet zo logisch in een functie die "putTask" heet. Je verwacht dat de functie de tasks put en verder niet. #spaghetti
   addTasksToDom();
 };

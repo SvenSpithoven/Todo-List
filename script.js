@@ -23,6 +23,12 @@ const addTasksToDom = async function () {
     checkbox.setAttribute("src", "images/unchecked.svg");
     checkbox.setAttribute("class", "checkbox");
     checkbox.addEventListener("click", () => {
+      if (task.done) {
+        task.done = false;
+      } else {
+        task.done = true;
+      }
+      // hier moet nog iets gebeuren
       putTask(task);
     });
 
@@ -49,8 +55,12 @@ const addTasksToDom = async function () {
   });
 };
 
+const addEventHandlers = () => {
+  todoForm.addEventListener("submit", () => {
+    postTask(todoInput.value);
+  });
+};
+
 addTasksToDom();
+addEventHandlers();
 // 2. hier kan je nog een event.preventdefault() gebruiken zodat de pagina niet automatisch herlaadt bij het submitten van een form
-todoForm.addEventListener("submit", () => {
-  postTask(todoInput.value);
-});
