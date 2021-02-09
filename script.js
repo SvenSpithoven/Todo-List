@@ -10,6 +10,7 @@ const addTasksToDom = async function () {
   tasks.forEach((task) => {
     let listItem = document.createElement("li");
 
+    // TODO: Input vervangen door checkbox
     let checkbox = document.createElement("input");
     checkbox.setAttribute("type", "image");
     checkbox.setAttribute("src", "images/unchecked.svg");
@@ -25,6 +26,7 @@ const addTasksToDom = async function () {
     removeTask.setAttribute("class", "remove-btn");
     removeTask.addEventListener("click", () => deleteTask(task));
 
+    // TODO: src verplaatsen naar css (door middel van classList.toggle wisselen)
     if (task.done == true) {
       listItem.classList.toggle("checked");
       checkbox.setAttribute("src", "images/checked.svg");
